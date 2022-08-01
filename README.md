@@ -1,16 +1,12 @@
 # flutter_fintech
 
-A Fintech App
+A Fintech App that keeps track of your personal Finances
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Clone or Fork this project if you're seeking to learn how to build beautiful User Interfaces.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##Dependencies used:
+intl - Date Formatter package for formatting Dates, strings,etc.
+provider - The infamous Go-To Wrapper for Dependency Injection. GetX is an alternative.
+charts_flutter - An external package that helps you build charts - Pie, Bar charts, etc. Slightly complicated to code but you would get the hang of it.

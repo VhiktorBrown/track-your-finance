@@ -84,7 +84,9 @@ class _TransactionCardState extends State<TransactionCard> {
                         ),
                         InkWell(
                           onTap: (){
-                            _date++;
+                            setState((){
+                              _date++;
+                            });
                           },
                           child: const Icon(Icons.arrow_right),
                         ),

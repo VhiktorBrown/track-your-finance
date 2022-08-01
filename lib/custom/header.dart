@@ -6,8 +6,8 @@ import 'package:flutter_fintech/custom/expense_chart.dart';
 import '../models/expense.dart';
 
 class Header extends StatelessWidget {
-  Function addTransaction;
-  Header({Key? key, required this.addTransaction}) : super(key: key);
+  final Function addTransaction;
+  const Header({Key? key, required this.addTransaction}) : super(key: key);
 
   static final List<charts.Series<Expense, String>> _series = [
 
@@ -83,6 +83,7 @@ class Header extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 //Reports Widget
                 Container(
                   padding: const EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
