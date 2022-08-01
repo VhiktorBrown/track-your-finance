@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fintech/custom/header.dart';
+import 'package:flutter_fintech/custom/transaction_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,9 +10,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  double height = .57;
+
+   _addTransaction(){
+    setState(() {
+      //height = 0.08;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white.withOpacity(.9),
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -36,9 +45,14 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.person_outline))
         ],
       ),
-      body: Column(
-        children: const [
-          Header(),
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              Header(addTransaction: _addTransaction()),
+            ],
+          ),
+          TransactionCard(height: height),
         ],
       ),
     );

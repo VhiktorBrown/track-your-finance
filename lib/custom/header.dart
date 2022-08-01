@@ -6,7 +6,8 @@ import 'package:flutter_fintech/custom/expense_chart.dart';
 import '../models/expense.dart';
 
 class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+  Function addTransaction;
+  Header({Key? key, required this.addTransaction}) : super(key: key);
 
   static final List<charts.Series<Expense, String>> _series = [
 
@@ -47,34 +48,80 @@ class Header extends StatelessWidget {
               height: 150,
               child: ExpenseChart(_series, animate: true,),
             ),
-            SizedBox(height: 14.0,),
+            const SizedBox(height: 14.0,),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                //Add Transaction widget
+                GestureDetector(
+                  onTap:  (){
+                    //implement the function that adds new transaction
+                    addTransaction;
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(width: 1, color: Colors.white),
+                    ),
+                    child: Row(
+                      children: const [
+                        Icon(
+                          Icons.playlist_add,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: 5.0),
+                        Text(
+                          "Add Transaction",
+                          style: TextStyle(
+                            fontFamily: 'Ralwway',
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                //Reports Widget
                 Container(
                   padding: const EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 7),
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(24),
-                    border: Border.all(width: 1, color: Colors.white),
                   ),
                   child: Row(
-                    children: const [
-                      Icon(
-                        Icons.playlist_add,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 5.0),
+                    children: [
                       Text(
-                        "Add Transaction",
+                        "Reports",
                         style: TextStyle(
                           fontFamily: 'Ralwway',
-                          color: Colors.white,
+                          color: primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
-                      )
+                      ),
+                      const SizedBox(width: 5.0),
+                      Icon(
+                        Icons.navigate_next,
+                        color: primaryColor,
+                      ),
                     ],
                   ),
-                )
+                ),
               ],
+            ),
+            const SizedBox(height: 16),
+            const Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Text(
+                "Transactions",
+                style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 16
+                ),
+              ),
             )
           ],
         ),
